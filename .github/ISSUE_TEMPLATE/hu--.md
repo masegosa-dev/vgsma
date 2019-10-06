@@ -1,6 +1,6 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: 'HU: '
+about: Template para crear nuevas issues y registrar las historias de usuarios.
 title: ''
 labels: ''
 assignees: ''
