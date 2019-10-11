@@ -14,6 +14,6 @@ public final class CreatePlatform implements UseCase<CreatePlatformParam, Platfo
 
     @Override
     public Platform execute(CreatePlatformParam createPlatformParam) {
-        throw new UnsupportedOperationException("Unimplemented method");
+        return platformRepository.createPlatform(createPlatformParam.getPlatform());
     }
 }
