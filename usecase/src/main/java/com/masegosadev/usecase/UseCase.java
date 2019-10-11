@@ -1,6 +1,6 @@
 package com.masegosadev.usecase;
 
-public interface UseCase<T> {
+public interface UseCase<T extends UseCaseParams, R> {
 
-    Object execute(T t);
+    R execute(T t);
 }

@@ -2,14 +2,18 @@ package com.masegosadev.usecase.platform;
 
 import com.masegosadev.usecase.UseCase;
 import platform.Platform;
+import platform.PlatformRepository;
 
-public final class CreatePlatform implements UseCase<Platform> {
+public final class CreatePlatform implements UseCase<CreatePlatformParam, Platform> {
 
-    public CreatePlatform() {
+    private PlatformRepository platformRepository;
+
+    public CreatePlatform(PlatformRepository platformRepository) {
+        this.platformRepository = platformRepository;
     }
 
     @Override
-    public Platform execute(Platform platform) {
+    public Platform execute(CreatePlatformParam createPlatformParam) {
         throw new UnsupportedOperationException("Unimplemented method");
     }
 }
