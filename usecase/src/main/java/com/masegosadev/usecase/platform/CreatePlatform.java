@@ -1,8 +1,8 @@
 package com.masegosadev.usecase.platform;
 
 import com.masegosadev.usecase.UseCase;
-import platform.Platform;
-import platform.PlatformRepository;
+import com.masegosadev.domain.platform.Platform;
+import com.masegosadev.domain.platform.PlatformRepository;
 
 public final class CreatePlatform implements UseCase<CreatePlatformParam, Platform> {
 

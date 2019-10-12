@@ -1,7 +1,7 @@
 package com.masegosadev.usecase.platform;
 
 import com.masegosadev.usecase.UseCaseParams;
-import platform.Platform;
+import com.masegosadev.domain.platform.Platform;
 
 import java.util.Objects;
 

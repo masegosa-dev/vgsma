@@ -1,4 +1,4 @@
-package platform;
+package com.masegosadev.domain.platform;
 
 public interface PlatformRepository {
 
