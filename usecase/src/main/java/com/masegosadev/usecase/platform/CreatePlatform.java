@@ -6,7 +6,7 @@ import com.masegosadev.domain.platform.PlatformRepository;
 
 public final class CreatePlatform implements UseCase<CreatePlatformParam, Platform> {
 
-    private PlatformRepository platformRepository;
+    private final PlatformRepository platformRepository;
 
     public CreatePlatform(PlatformRepository platformRepository) {
         this.platformRepository = platformRepository;
