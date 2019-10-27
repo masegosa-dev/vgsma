@@ -14,6 +14,7 @@ public class CreateVideogame implements UseCase<CreateVideogameParam, Videogame>
 
     @Override
     public Videogame execute(CreateVideogameParam createVideogameParam) {
+        //Penfind to check if the platforms exists
         return videoGameRepository.createVideogame(createVideogameParam.getVideogame());
     }
 }
