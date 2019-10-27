@@ -9,7 +9,7 @@ public class CreateVideogameParam implements UseCaseParams {
 
     private Videogame videoGame;
 
-    CreateVideogameParam(Videogame videoGame) {
+    public CreateVideogameParam(Videogame videoGame) {
         this.videoGame = videoGame;
     }
 

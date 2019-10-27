@@ -7,10 +7,12 @@ import com.masegosadev.infrastructure.model.platform.PlatformEntity;
 import com.masegosadev.infrastructure.model.videogame.VideogameEntity;
 import com.masegosadev.infrastructure.persistence.mappers.PlatformEntityToPlatform;
 import com.masegosadev.infrastructure.persistence.mappers.PlatformToPlatformEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Repository
 public class VideogameCollection implements VideogameRepository {
 
     private final InMemoryVideogameRepository inMemoryVideogameRepository;

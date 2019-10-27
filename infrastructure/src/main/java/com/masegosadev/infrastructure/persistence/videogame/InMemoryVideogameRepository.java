@@ -1,9 +1,11 @@
 package com.masegosadev.infrastructure.persistence.videogame;
 
 import com.masegosadev.infrastructure.model.videogame.VideogameEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class InMemoryVideogameRepository {
 
     private Map<String, VideogameEntity> collection = new HashMap<>();

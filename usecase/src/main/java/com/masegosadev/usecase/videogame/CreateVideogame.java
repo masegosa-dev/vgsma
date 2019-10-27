@@ -8,7 +8,7 @@ public class CreateVideogame implements UseCase<CreateVideogameParam, Videogame>
 
     private final VideogameRepository videoGameRepository;
 
-    CreateVideogame(VideogameRepository videoGameRepository) {
+    public CreateVideogame(VideogameRepository videoGameRepository) {
         this.videoGameRepository = videoGameRepository;
     }
 
