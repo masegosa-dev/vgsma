@@ -14,7 +14,7 @@
     </parent>
 
     <properties>
-        <start-class>com.masegosadev.boot.Application</start-class>
+        <start-class>com.masegosadev.Application</start-class>
     </properties>
 
     <dependencies>
