@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -30,14 +31,21 @@ public class CreateVideoGameControllerIT {
 
     @Test
     public void given_A_Request_To_Save_Videogame_When_The_Request_Is_Send_Then_Return_The_Saved_Videogame() throws Exception {
+        // given
         Set<String> platformsName = new HashSet<>();
         platformsName.add("PS4");
-        VideogameRequest videoGameRequest = new VideogameRequest("COD", "https://cod_logo.com", platformsName);
+        String name = "COD";
+        String imageUrl = "https://cod_logo.com";
+        VideogameRequest videoGameRequest = new VideogameRequest(name, imageUrl, platformsName);
 
+        // when
         mockMvc.perform(post("/createVideoGame")
                 .content(objectMapper.writeValueAsString(videoGameRequest))
                 .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
                 .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(status().isCreated());
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.name").value(name))
+                .andExpect(jsonPath("$.imageUrl").value(imageUrl))
+                .andExpect(jsonPath("$.platforms").exists());
     }
 }

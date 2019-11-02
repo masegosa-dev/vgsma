@@ -13,5 +13,5 @@ public class VideogameResponse {
 
     String name;
     String imageUrl;
-    Set<PlaformResponse> platform; //TODO Change to PlatformResponse
+    Set<PlaformResponse> platforms; //TODO Change to PlatformResponse
 }
