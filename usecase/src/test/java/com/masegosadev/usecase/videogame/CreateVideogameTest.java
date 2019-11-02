@@ -21,9 +21,8 @@ public class CreateVideogameTest {
     @Test
     public void given_A_Videogame_When_The_Create_Use_Case_Is_Executed_Then_The_Created_VideoGame_Should_Be_Returned() {
         //given
-        Platform platform = new Platform("Ps4", "https//my_ps4_image.com");
-        Set<Platform> platforms = new HashSet<>();
-        platforms.add(platform);
+        Set<String> platforms = new HashSet<>();
+        platforms.add("PS4");
         Videogame videogame = new Videogame("COD", "https//my_cod_image.com", platforms);
         CreateVideogameParam createVideogameParam = new CreateVideogameParam(videogame);
         given(videogameRepository.createVideogame(videogame)).willReturn(videogame);
