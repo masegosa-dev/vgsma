@@ -6,14 +6,14 @@ import com.masegosadev.domain.platform.PlatformRepository;
 
 public final class CreatePlatform implements UseCase<CreatePlatformParam, Platform> {
 
-    private final PlatformRepository platformRepository;
+    private final PlatformRepository platformCollection;
 
-    public CreatePlatform(PlatformRepository platformRepository) {
-        this.platformRepository = platformRepository;
+    public CreatePlatform(PlatformRepository platformCollection) {
+        this.platformCollection = platformCollection;
     }
 
     @Override
     public Platform execute(CreatePlatformParam createPlatformParam) {
-        return platformRepository.createPlatform(createPlatformParam.getPlatform());
+        return platformCollection.createPlatform(createPlatformParam.getPlatform());
     }
 }
