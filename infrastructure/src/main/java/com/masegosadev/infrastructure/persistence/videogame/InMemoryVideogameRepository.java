@@ -1,6 +1,6 @@
 package com.masegosadev.infrastructure.persistence.videogame;
 
-import com.masegosadev.infrastructure.model.videogame.VideogameEntity;
+import com.masegosadev.infrastructure.persistence.videogame.model.VideogameEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;

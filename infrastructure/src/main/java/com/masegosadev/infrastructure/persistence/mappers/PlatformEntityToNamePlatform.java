@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 import java.util.function.Function;
 
 @Component
-public class PlatformEntityToPlatform implements Function<PlatformEntity, Platform> {
+public class PlatformEntityToNamePlatform implements Function<PlatformEntity, String> {
 
 
     @Override
-    public Platform apply(PlatformEntity platformEntity) {
-        return new Platform(platformEntity.getPlatformName(), platformEntity.getImageUrl());
+    public String apply(PlatformEntity platformEntity) {
+        return platformEntity.getPlatformName();
     }
 }

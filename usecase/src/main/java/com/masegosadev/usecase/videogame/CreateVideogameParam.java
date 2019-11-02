@@ -5,7 +5,7 @@ import com.masegosadev.usecase.UseCaseParams;
 
 import java.util.Objects;
 
-public class CreateVideogameParam implements UseCaseParams {
+public final class CreateVideogameParam implements UseCaseParams {
 
     private Videogame videoGame;
 

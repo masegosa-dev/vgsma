@@ -9,9 +9,9 @@ public final class Videogame {
 
     private String name;
     private String imageUrl;
-    private Set<Platform> platforms;
+    private Set<String> platforms;
 
-    public Videogame(String name, String imageUrl, Set<Platform> platforms) {
+    public Videogame(String name, String imageUrl, Set<String> platforms) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.platforms = platforms;
@@ -25,7 +25,7 @@ public final class Videogame {
         return imageUrl;
     }
 
-    public Set<Platform> getPlatforms() {
+    public Set<String> getPlatforms() {
         return platforms;
     }
 

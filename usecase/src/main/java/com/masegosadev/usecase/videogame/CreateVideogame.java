@@ -4,7 +4,7 @@ import com.masegosadev.domain.videogame.Videogame;
 import com.masegosadev.domain.videogame.VideogameRepository;
 import com.masegosadev.usecase.UseCase;
 
-public class CreateVideogame implements UseCase<CreateVideogameParam, Videogame> {
+public final class CreateVideogame implements UseCase<CreateVideogameParam, Videogame> {
 
     private final VideogameRepository videoGameRepository;
 
@@ -14,7 +14,8 @@ public class CreateVideogame implements UseCase<CreateVideogameParam, Videogame>
 
     @Override
     public Videogame execute(CreateVideogameParam createVideogameParam) {
-        //Penfind to check if the platforms exists
+        //TODO Pending to check if the platforms exists
+
         return videoGameRepository.createVideogame(createVideogameParam.getVideogame());
     }
 }
