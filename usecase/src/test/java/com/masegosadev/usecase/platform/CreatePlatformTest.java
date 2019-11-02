@@ -1,8 +1,8 @@
 package com.masegosadev.usecase.platform;
 
-import org.junit.Test;
 import com.masegosadev.domain.platform.Platform;
 import com.masegosadev.domain.platform.PlatformRepository;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
