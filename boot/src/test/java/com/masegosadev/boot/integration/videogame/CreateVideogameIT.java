@@ -26,16 +26,15 @@ public class CreateVideogameIT {
     private CreateVideogame createVideogame;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         this.createVideogame = new CreateVideogame(videogameCollection);
     }
 
     @Test
     public void given_A_Videogame_When_The_UseCase_Is_Executed_A_Videogame_Is_Persisted() {
         //given
-        Platform platform = new Platform("Ps4", "https//my_ps4_image.com");
-        Set<Platform> platforms = new HashSet<>();
-        platforms.add(platform);
+        Set<String> platforms = new HashSet<>();
+        platforms.add("PS4");
         Videogame cod = new Videogame("COD", "http://cod_logo_url", platforms);
         CreateVideogameParam createVideogameParam = new CreateVideogameParam(cod);
 
