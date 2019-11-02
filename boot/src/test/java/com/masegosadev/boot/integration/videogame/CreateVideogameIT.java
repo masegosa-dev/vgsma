@@ -1,11 +1,9 @@
 package com.masegosadev.boot.integration.videogame;
 
-import com.masegosadev.domain.platform.Platform;
 import com.masegosadev.domain.videogame.Videogame;
 import com.masegosadev.domain.videogame.VideogameRepository;
 import com.masegosadev.usecase.videogame.CreateVideogame;
 import com.masegosadev.usecase.videogame.CreateVideogameParam;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +13,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -35,13 +36,19 @@ public class CreateVideogameIT {
         //given
         Set<String> platforms = new HashSet<>();
         platforms.add("PS4");
-        Videogame cod = new Videogame("COD", "http://cod_logo_url", platforms);
+        String name = "COD";
+        String imageUrl = "https://cod_logo.com";
+        Videogame cod = new Videogame(name, imageUrl, platforms);
         CreateVideogameParam createVideogameParam = new CreateVideogameParam(cod);
 
         //when
         Videogame execute = createVideogame.execute(createVideogameParam);
 
         //then
-        Assert.assertNotNull(execute);
+        assertNotNull(execute);
+        assertEquals(name, execute.getName());
+        assertEquals(imageUrl, execute.getImageUrl());
+        assertEquals(platforms, execute.getPlatforms());
+
     }
 }

@@ -12,10 +12,10 @@ import java.util.Set;
 @NoArgsConstructor
 public class VideogameEntity {
 
-    String id;
-    String videoGameName;
-    String imageUrl;
-    Set<PlatformEntity> platformEntities;
+    private String id;
+    private String videoGameName;
+    private String imageUrl;
+    private Set<PlatformEntity> platformEntities;
 
 
 }

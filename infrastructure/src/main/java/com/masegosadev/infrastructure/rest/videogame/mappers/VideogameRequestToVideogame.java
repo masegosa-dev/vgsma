@@ -11,8 +11,6 @@ public class VideogameRequestToVideogame implements Function<VideogameRequest, V
 
     @Override
     public Videogame apply(VideogameRequest videogameRequest) {
-
-        Videogame videogame = new Videogame(videogameRequest.getName(), videogameRequest.getImageUrl(), videogameRequest.getPlatform());
-        return videogame;
+        return new Videogame(videogameRequest.getName(), videogameRequest.getImageUrl(), videogameRequest.getPlatform());
     }
 }

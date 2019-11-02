@@ -1,7 +1,6 @@
 package com.masegosadev.infrastructure.rest.videogame.mappers;
 
 import com.masegosadev.domain.videogame.Videogame;
-import com.masegosadev.infrastructure.model.platform.PlatformEntity;
 import com.masegosadev.infrastructure.rest.videogame.model.PlaformResponse;
 import com.masegosadev.infrastructure.rest.videogame.model.VideogameResponse;
 import org.springframework.stereotype.Component;
@@ -21,7 +20,11 @@ public class VideogameToVideogameResponse implements Function<Videogame, Videoga
 
     @Override
     public VideogameResponse apply(Videogame videogame) {
-        Set<PlaformResponse> platformEntities = videogame.getPlatforms().stream().map(namePlatformToPlatformResponse).collect(Collectors.toSet());
+        Set<PlaformResponse> platformEntities = getPlatforms(videogame.getPlatforms());
         return new VideogameResponse(videogame.getName(), videogame.getImageUrl(), platformEntities);
+    }
+
+    private Set<PlaformResponse> getPlatforms(Set<String> platformsName) {
+        return platformsName.stream().map(namePlatformToPlatformResponse).collect(Collectors.toSet());
     }
 }

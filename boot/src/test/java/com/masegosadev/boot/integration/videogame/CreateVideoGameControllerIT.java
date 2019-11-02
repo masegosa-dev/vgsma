@@ -1,5 +1,6 @@
 package com.masegosadev.boot.integration.videogame;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.masegosadev.infrastructure.rest.videogame.model.VideogameRequest;
 import org.junit.Test;
@@ -40,12 +41,16 @@ public class CreateVideoGameControllerIT {
 
         // when
         mockMvc.perform(post("/createVideoGame")
-                .content(objectMapper.writeValueAsString(videoGameRequest))
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
-                .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .content(toJson(videoGameRequest))
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name").value(name))
                 .andExpect(jsonPath("$.imageUrl").value(imageUrl))
                 .andExpect(jsonPath("$.platforms").exists());
     }
+
+    private String toJson(VideogameRequest creVideogameRequest) throws JsonProcessingException {
+        return objectMapper.writeValueAsString(creVideogameRequest);
+    }
+
 }
