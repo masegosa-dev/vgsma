@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Repository
-public final class InMemoryPlatformRepository {
+public class InMemoryPlatformRepository {
 
     private final Map<String, PlatformEntity> collection = new HashMap<>();
 
