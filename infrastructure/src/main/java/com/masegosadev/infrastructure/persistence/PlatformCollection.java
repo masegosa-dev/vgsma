@@ -6,7 +6,7 @@ import com.masegosadev.infrastructure.model.platform.PlatformEntity;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public final class PlatformCollection implements PlatformRepository {
+public class PlatformCollection implements PlatformRepository {
 
     private final InMemoryPlatformRepository inMemoryPlatformRepository;
 
