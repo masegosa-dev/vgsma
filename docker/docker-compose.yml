@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - /Users/danielmasegosa/Workspaces/vgsma/docker/volumes/mongodb/data:/data/db
+    networks:
+      - mongodb_net
+  mongoclient:
+    image: mongoclient/mongoclient:latest
+    depends_on:
+      - mongodb
+    networks:
+      - mongodb_net
+    ports:
+      - 3300:3000
+
+networks:
+  mongodb_net:
+    driver: bridge
