@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 @Repository
 public class VideogameCollection implements VideogameRepository {
 
-    private final com.masegosadev.infrastructure.persistence.videogame.VideogameRepository videogameRepository;
+    private final MongoVideogameRepository mongoVideogameRepository;
     private final NamePlatformToPlatformEntity namePlatformToPlatformEntity;
     private final PlatformEntityToNamePlatform platformEntityToNamePlatform;
 
-    public VideogameCollection(com.masegosadev.infrastructure.persistence.videogame.VideogameRepository videogameRepository, NamePlatformToPlatformEntity namePlatformToPlatformEntity, PlatformEntityToNamePlatform platformEntityToNamePlatform) {
-        this.videogameRepository = videogameRepository;
+    public VideogameCollection(MongoVideogameRepository mongoVideogameRepository, NamePlatformToPlatformEntity namePlatformToPlatformEntity, PlatformEntityToNamePlatform platformEntityToNamePlatform) {
+        this.mongoVideogameRepository = mongoVideogameRepository;
         this.namePlatformToPlatformEntity = namePlatformToPlatformEntity;
         this.platformEntityToNamePlatform = platformEntityToNamePlatform;
     }
@@ -31,7 +31,7 @@ public class VideogameCollection implements VideogameRepository {
 
     private VideogameEntity saveVideoGame(Videogame videogame) {
         VideogameEntity videogameEntity = new VideogameEntity(videogame.getName() + "::VIDEOGAME", videogame.getName(), videogame.getImageUrl(), getPlatforms(videogame.getPlatforms()));
-        return videogameRepository.save(videogameEntity);
+        return mongoVideogameRepository.save(videogameEntity);
     }
 
     private Videogame returnVideoGame(VideogameEntity videogameEntity) {

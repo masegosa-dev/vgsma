@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository
-public interface VideogameRepository extends MongoRepository<VideogameEntity,String> {
+public interface MongoVideogameRepository extends MongoRepository<VideogameEntity,String> {
 
 }
