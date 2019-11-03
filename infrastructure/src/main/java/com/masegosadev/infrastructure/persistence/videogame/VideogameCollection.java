@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 @Repository
 public class VideogameCollection implements VideogameRepository {
 
-    private final InMemoryVideogameRepository inMemoryVideogameRepository;
+    private final com.masegosadev.infrastructure.persistence.videogame.VideogameRepository videogameRepository;
     private final NamePlatformToPlatformEntity namePlatformToPlatformEntity;
     private final PlatformEntityToNamePlatform platformEntityToNamePlatform;
 
-    public VideogameCollection(InMemoryVideogameRepository inMemoryVideogameRepository, NamePlatformToPlatformEntity namePlatformToPlatformEntity, PlatformEntityToNamePlatform platformEntityToNamePlatform) {
-        this.inMemoryVideogameRepository = inMemoryVideogameRepository;
+    public VideogameCollection(com.masegosadev.infrastructure.persistence.videogame.VideogameRepository videogameRepository, NamePlatformToPlatformEntity namePlatformToPlatformEntity, PlatformEntityToNamePlatform platformEntityToNamePlatform) {
+        this.videogameRepository = videogameRepository;
         this.namePlatformToPlatformEntity = namePlatformToPlatformEntity;
         this.platformEntityToNamePlatform = platformEntityToNamePlatform;
     }
@@ -31,7 +31,7 @@ public class VideogameCollection implements VideogameRepository {
 
     private VideogameEntity saveVideoGame(Videogame videogame) {
         VideogameEntity videogameEntity = new VideogameEntity(videogame.getName() + "::VIDEOGAME", videogame.getName(), videogame.getImageUrl(), getPlatforms(videogame.getPlatforms()));
-        return inMemoryVideogameRepository.save(videogameEntity);
+        return videogameRepository.save(videogameEntity);
     }
 
     private Videogame returnVideoGame(VideogameEntity videogameEntity) {
