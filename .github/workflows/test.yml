@@ -14,7 +14,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Run stack
-      run: docker-compose up -d
+      run: /docker/docker-compose up -d
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Test
