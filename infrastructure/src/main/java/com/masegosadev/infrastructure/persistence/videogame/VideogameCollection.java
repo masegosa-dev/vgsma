@@ -26,19 +26,16 @@ public class VideogameCollection implements VideogameRepository {
 
     @Override
     public Videogame createVideogame(Videogame videogame) {
-        VideogameEntity videogameSaved = saveVideoGame(videogame);
-        return returnVideoGame(videogameSaved);
+        return returnVideoGame(saveVideoGame(videogame));
     }
 
     private VideogameEntity saveVideoGame(Videogame videogame) {
-        Set<PlatformEntity> platformEntities = getPlatforms(videogame.getPlatforms());
-        VideogameEntity videogameEntity = new VideogameEntity(videogame.getName() + "::VIDEOGAME", videogame.getName(), videogame.getImageUrl(), platformEntities);
+        VideogameEntity videogameEntity = new VideogameEntity(videogame.getName() + "::VIDEOGAME", videogame.getName(), videogame.getImageUrl(), getPlatforms(videogame.getPlatforms()));
         return inMemoryVideogameRepository.save(videogameEntity);
     }
 
     private Videogame returnVideoGame(VideogameEntity videogameEntity) {
-        Set<String> platforms = getNamePlatforms(videogameEntity.getPlatformEntities());
-        return new Videogame(videogameEntity.getVideoGameName(), videogameEntity.getImageUrl(), platforms);
+        return new Videogame(videogameEntity.getVideoGameName(), videogameEntity.getImageUrl(), getNamePlatforms(videogameEntity.getPlatformEntities()));
     }
 
     private Set<PlatformEntity> getPlatforms(Set<String> platformsName) {

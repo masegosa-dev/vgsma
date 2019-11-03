@@ -20,8 +20,7 @@ public class VideogameToVideogameResponse implements Function<Videogame, Videoga
 
     @Override
     public VideogameResponse apply(Videogame videogame) {
-        Set<PlaformResponse> platformEntities = getPlatforms(videogame.getPlatforms());
-        return new VideogameResponse(videogame.getName(), videogame.getImageUrl(), platformEntities);
+        return new VideogameResponse(videogame.getName(), videogame.getImageUrl(), getPlatforms(videogame.getPlatforms()));
     }
 
     private Set<PlaformResponse> getPlatforms(Set<String> platformsName) {
