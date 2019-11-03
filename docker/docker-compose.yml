@@ -5,7 +5,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - /Users/danielmasegosa/Workspaces/vgsma/docker/volumes/mongodb/data:/data/db
+      - ./volumes/mongodb/data:/data/db
     networks:
       - mongodb_net
   mongoclient:
@@ -16,6 +16,8 @@ services:
       - mongodb_net
     ports:
       - 3300:3000
+    volumes:
+      - ./volumes/mongodb-client/data:/data/db
 
 networks:
   mongodb_net:
